@@ -540,12 +540,6 @@ Contributions are welcome! Please follow these steps:
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
 ## 🙏 Acknowledgments
 
 - **Clerk** for authentication and subscription management
@@ -553,22 +547,3 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **Vapi** for voice AI technology
 - **Vercel** for hosting and deployment
 - **shadcn/ui** for beautiful components
-
----
-
-## 📞 Contact & Support
-
-- **Email**: support@articulate.app
-- **Twitter**: [@ArticulateApp](https://twitter.com/ArticulateApp)
-- **Discord**: [Join our community](https://discord.gg/articulate)
-
----
-
-<div align="center">
-  <p>Built with ❤️ by the Articulate Team</p>
-  <p>
-    <a href="https://articulate.app">Website</a> •
-    <a href="https://docs.articulate.app">Documentation</a> •
-    <a href="https://blog.articulate.app">Blog</a>
-  </p>
-</div>
