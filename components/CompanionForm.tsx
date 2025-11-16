@@ -45,6 +45,7 @@ const CompanionForm = () => {
 
   // Initialize form with react-hook-form
   const form = useForm<FormValues>({
+    // @ts-ignore - Zod coerce type inference issue with react-hook-form
     resolver: zodResolver(formSchema), // Connect Zod validation
     defaultValues: {
       name: '',
