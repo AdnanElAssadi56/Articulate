@@ -110,7 +110,7 @@ export const configureAssistant = (voice: string, style: string, category?: stri
   let voiceId: string;
   
   if (category === 'spiritual' && voice === 'quran') {
-    voiceId = voices.quran[style as keyof typeof voices.quran] || voices.quran.formal;
+    voiceId = voices.quran[style as keyof typeof voices.quran] || voices.quran.male;
   } else {
     // Standard voice selection
     const voiceGroup = voices[voice as keyof typeof voices];

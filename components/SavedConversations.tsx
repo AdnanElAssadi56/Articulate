@@ -23,27 +23,27 @@ const SavedConversations = async () => {
 
   // Mock data for demo (in real app, fetch from database)
   const conversations = [
-    // {
-    //   id: '1',
-    //   advisorName: 'Dr. Sarah Chen',
-    //   date: '2024-01-15',
-    //   messageCount: 24,
-    //   preview: 'Discussed career transition strategies and networking approaches...'
-    // },
-    // {
-    //   id: '2',
-    //   advisorName: 'Marcus Williams',
-    //   date: '2024-01-14',
-    //   messageCount: 18,
-    //   preview: 'Explored mindfulness techniques and stress management...'
-    // },
-    // {
-    //   id: '3',
-    //   advisorName: 'Prof. Emily Rodriguez',
-    //   date: '2024-01-12',
-    //   messageCount: 31,
-    //   preview: 'Deep dive into quantum physics concepts and applications...'
-    // }
+    {
+      id: '1',
+      advisorName: 'Dr. Sarah Chen',
+      date: '2024-01-15',
+      messageCount: 24,
+      preview: 'Discussed career transition strategies and networking approaches...'
+    },
+    {
+      id: '2',
+      advisorName: 'Marcus Williams',
+      date: '2024-01-14',
+      messageCount: 18,
+      preview: 'Explored mindfulness techniques and stress management...'
+    },
+    {
+      id: '3',
+      advisorName: 'Prof. Emily Rodriguez',
+      date: '2024-01-12',
+      messageCount: 31,
+      preview: 'Deep dive into quantum physics concepts and applications...'
+    }
   ];
 
   return (
