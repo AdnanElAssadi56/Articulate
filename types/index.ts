@@ -19,7 +19,7 @@ export interface Companion {
 
 export interface CreateCompanion {
   name: string;
-  category: CategoryId;
+  category: CategoryId | string;
   subject: string;
   topic: string;
   duration: number;
