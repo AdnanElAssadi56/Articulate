@@ -1,36 +1,574 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Articulate - AI Voice Advisory Platform
 
-## Getting Started
+<div align="center">
+  <img src="/public/images/hero-banner.png" alt="Articulate Platform" width="800"/>
+  
+  <p align="center">
+    <strong>Your Personal AI Advisory Platform</strong>
+  </p>
+  
+  <p align="center">
+    Connect with AI-powered advisors through natural voice conversations for career guidance, wellness coaching, spiritual growth, and academic support.
+  </p>
 
-First, run the development server:
+  <p align="center">
+    <a href="#features">Features</a> •
+    <a href="#tech-stack">Tech Stack</a> •
+    <a href="#getting-started">Getting Started</a> •
+    <a href="#deployment">Deployment</a>
+  </p>
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [🤖 Introduction](#-introduction)
+- [⚙️ Tech Stack](#️-tech-stack)
+- [🔋 Features](#-features)
+- [🏗️ Architecture](#️-architecture)
+- [🚀 Getting Started](#-getting-started)
+- [🔐 Environment Variables](#-environment-variables)
+- [📱 Screenshots](#-screenshots)
+- [🎯 Subscription Tiers](#-subscription-tiers)
+- [🛠️ Development](#️-development)
+- [📦 Deployment](#-deployment)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+
+---
+
+## 🤖 Introduction
+
+**Articulate** is a cutting-edge SaaS platform that revolutionizes personal advisory services through AI-powered voice conversations. Whether you need career guidance, wellness coaching, spiritual mentorship, or academic tutoring, Articulate connects you with specialized AI advisors that understand your needs and provide personalized guidance through natural voice interactions.
+
+Built with modern web technologies and powered by advanced AI voice synthesis, Articulate delivers a seamless, human-like advisory experience that's accessible 24/7.
+
+### Why Articulate?
+
+- 🎯 **Specialized Advisors**: Choose from pre-built advisors or create your own custom AI advisor
+- 🗣️ **Natural Voice Conversations**: Real-time voice interactions with low-latency responses
+- 📊 **Track Your Progress**: Monitor your journey with detailed analytics and insights
+- 💎 **Flexible Pricing**: Free tier to get started, premium plans for power users
+- 🔒 **Secure & Private**: Enterprise-grade security with Clerk authentication
+
+---
+
+## ⚙️ Tech Stack
+
+<div align="center">
+
+| Technology | Purpose | Why We Chose It |
+|------------|---------|-----------------|
+| ![Next.js](https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=next.js&logoColor=white) | **Framework** | Server-side rendering, API routes, optimal performance |
+| ![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white) | **Language** | Type safety, better developer experience |
+| ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=for-the-badge&logo=supabase&logoColor=white) | **Database** | Real-time PostgreSQL, instant APIs |
+| ![Clerk](https://img.shields.io/badge/Clerk-6C47FF?style=for-the-badge&logo=clerk&logoColor=white) | **Auth & Billing** | Complete user management, subscription handling |
+| ![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white) | **Styling** | Utility-first, rapid UI development |
+| ![Sentry](https://img.shields.io/badge/Sentry-362D59?style=for-the-badge&logo=sentry&logoColor=white) | **Monitoring** | Error tracking, performance monitoring |
+| ![Vapi](https://img.shields.io/badge/Vapi-FF6B6B?style=for-the-badge) | **Voice AI** | Low-latency voice conversations |
+
+</div>
+
+### Additional Technologies
+
+- **shadcn/ui** - Beautiful, accessible component library
+- **Zod** - TypeScript-first schema validation
+- **React Hook Form** - Performant form handling
+- **Lucide Icons** - Modern icon library
+- **Lottie** - Smooth animations
+
+---
+
+## 🔋 Features
+
+### 🎙️ AI Voice Conversations
+<img src="/public/images/voice-session.png" alt="Voice Session" width="600"/>
+
+- **Real-time voice interactions** with AI advisors
+- **Low-latency responses** for natural conversations
+- **Session timer** to track conversation duration
+- **Live transcription** of conversations
+- **Download transcripts** for future reference
+
+### 👥 Advisor Marketplace
+<img src="/public/images/advisors-grid.png" alt="Advisors Grid" width="600"/>
+
+- **Browse 40+ pre-built advisors** across 4 categories:
+  - 💼 Career & Professional Development
+  - 🧘 Wellness & Mental Health
+  - 🕉️ Spiritual & Personal Growth
+  - 📚 Academic & Learning
+- **Advanced search & filtering** by category, subject, and topic
+- **Advisor ratings** and session counts
+- **Bookmark favorite advisors** for quick access
+
+### 🎨 Create Custom Advisors
+<img src="/public/images/create-advisor.png" alt="Create Advisor" width="600"/>
+
+- **Design your own AI advisor** with custom:
+  - Name and personality
+  - Subject expertise
+  - Conversation style
+  - Voice type (male/female)
+  - Session duration
+- **Tier-based limits**:
+  - Free: 5 custom advisors
+  - Pro: 20 custom advisors
+  - Premium: Unlimited
+
+### 📊 Journey Dashboard
+<img src="/public/images/journey-dashboard.png" alt="Journey Dashboard" width="600"/>
+
+- **Track your progress** with detailed statistics
+- **Session history** with all your conversations
+- **Bookmarked advisors** for easy access
+- **Advanced analytics** (Premium feature - Coming Soon)
+- **Conversation insights** (Pro/Premium feature)
+
+### 💳 Subscription Management
+<img src="/public/images/pricing.png" alt="Pricing Plans" width="600"/>
+
+- **Flexible pricing tiers** to match your needs
+- **Clerk-powered billing** for secure payments
+- **Easy plan upgrades** and downgrades
+- **Transparent pricing** with no hidden fees
+
+### 🔐 Authentication & Security
+
+- **Secure sign-up/sign-in** with Clerk
+- **Google OAuth** integration
+- **Session management** with automatic refresh
+- **Protected routes** for authenticated users
+- **Error monitoring** with Sentry
+
+### 📱 Responsive Design
+
+- **Mobile-first approach** for all devices
+- **Smooth animations** and transitions
+- **Loading states** for better UX
+- **Skeleton screens** during data fetching
+- **Optimized performance** with Next.js
+
+---
+
+## 🏗️ Architecture
+
+### Project Structure
+
+```
+articulate/
+├── app/                          # Next.js app directory
+│   ├── (auth)/                   # Authentication routes
+│   │   ├── sign-in/
+│   │   └── sign-up/
+│   ├── companions/               # Advisor routes
+│   │   ├── [id]/                 # Individual advisor session
+│   │   ├── new/                  # Create new advisor
+│   │   └── page.tsx              # Advisors list
+│   ├── journey/                  # User dashboard
+│   ├── subscription/             # Pricing & billing
+│   ├── api/                      # API routes
+│   ├── loading.tsx               # Global loading state
+│   ├── layout.tsx                # Root layout
+│   └── page.tsx                  # Homepage
+├── components/                   # React components
+│   ├── ui/                       # shadcn/ui components
+│   ├── CompanionCard.tsx
+│   ├── CompanionComponent.tsx    # Voice session component
+│   ├── CompanionForm.tsx
+│   ├── Navbar.tsx
+│   └── ...
+├── lib/                          # Utility functions
+│   ├── actions/                  # Server actions
+│   ├── subscription.ts           # Tier management
+│   ├── supabase.ts              # Database client
+│   └── vapi.sdk.ts              # Voice AI SDK
+├── constants/                    # App constants
+│   ├── categories.ts
+│   └── index.ts
+├── types/                        # TypeScript types
+└── public/                       # Static assets
+```
+
+### Database Schema (Supabase)
+
+```sql
+-- Companions (AI Advisors)
+companions (
+  id: uuid
+  name: text
+  category: text
+  subject: text
+  topic: text
+  duration: integer
+  voice: text
+  style: text
+  description: text
+  author: text (user_id)
+  created_at: timestamp
+)
+
+-- Bookmarks
+bookmarks (
+  id: uuid
+  user_id: text
+  companion_id: uuid (FK)
+  created_at: timestamp
+)
+
+-- Session History
+session_history (
+  id: uuid
+  user_id: text
+  companion_id: uuid (FK)
+  created_at: timestamp
+)
+```
+
+### Subscription Tiers (Clerk)
+
+The app uses Clerk's subscription management with three tiers:
+
+| Feature | Free | Pro ($9.99/mo) | Premium ($19.99/mo) |
+|---------|------|----------------|---------------------|
+| Custom Advisors | 5 | 20 | Unlimited |
+| Bookmarks | 3 | Unlimited | Unlimited |
+| Sessions/Month | 5 | 50 | Unlimited |
+| Session Duration | 10 min | 20 min | 30 min |
+| Conversation History | 3 | Unlimited | Unlimited |
+| Download Transcripts | ✅ | ✅ | ✅ |
+| Conversation Insights | ❌ | ✅ | ✅ |
+| Advanced Analytics | ❌ | ❌ | ✅ |
+
+---
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+Before you begin, ensure you have the following installed:
+
+- **Node.js** (v18 or higher)
+- **npm** or **yarn**
+- **Git**
+
+### Installation
+
+1. **Clone the repository**
+
+```bash
+git clone https://github.com/yourusername/articulate.git
+cd articulate
+```
+
+2. **Install dependencies**
+
+```bash
+npm install
+# or
+yarn install
+```
+
+3. **Set up environment variables**
+
+Create a `.env.local` file in the root directory:
+
+```env
+# Clerk Authentication
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=your_clerk_publishable_key
+CLERK_SECRET_KEY=your_clerk_secret_key
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+NEXT_PUBLIC_CLERK_SIGN_IN_FALLBACK_REDIRECT_URL=/
+NEXT_PUBLIC_CLERK_SIGN_UP_FALLBACK_REDIRECT_URL=/
+
+# Supabase Database
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_project_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
+
+# Vapi Voice AI
+NEXT_PUBLIC_VAPI_WEB_TOKEN=your_vapi_web_token
+
+# Sentry Error Monitoring (Optional)
+SENTRY_AUTH_TOKEN=your_sentry_auth_token
+```
+
+4. **Set up Supabase database**
+
+Run the following SQL in your Supabase SQL editor:
+
+```sql
+-- Create companions table
+create table companions (
+  id uuid default gen_random_uuid() primary key,
+  name text not null,
+  category text not null,
+  subject text not null,
+  topic text not null,
+  duration integer not null,
+  voice text not null,
+  style text not null,
+  description text,
+  author text not null,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Create bookmarks table
+create table bookmarks (
+  id uuid default gen_random_uuid() primary key,
+  user_id text not null,
+  companion_id uuid references companions(id) on delete cascade,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null,
+  unique(user_id, companion_id)
+);
+
+-- Create session_history table
+create table session_history (
+  id uuid default gen_random_uuid() primary key,
+  user_id text not null,
+  companion_id uuid references companions(id) on delete cascade,
+  created_at timestamp with time zone default timezone('utc'::text, now()) not null
+);
+
+-- Enable Row Level Security
+alter table companions enable row level security;
+alter table bookmarks enable row level security;
+alter table session_history enable row level security;
+
+-- Create policies
+create policy "Companions are viewable by everyone"
+  on companions for select
+  using (true);
+
+create policy "Users can create companions"
+  on companions for insert
+  with check (true);
+
+create policy "Users can manage their own bookmarks"
+  on bookmarks for all
+  using (true);
+
+create policy "Users can manage their own session history"
+  on session_history for all
+  using (true);
+```
+
+5. **Configure Clerk subscriptions**
+
+In your Clerk dashboard:
+- Create three subscription plans: Free, Pro, Premium
+- Set up pricing: Pro ($9.99/mo), Premium ($19.99/mo)
+- Configure features for each tier
+- Add webhook endpoints for subscription events
+
+6. **Run the development server**
 
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+7. **Open your browser**
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Navigate to [http://localhost:3000](http://localhost:3000)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## 🔐 Environment Variables
 
-To learn more about Next.js, take a look at the following resources:
+### Required Variables
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Variable | Description | Where to Get It |
+|----------|-------------|-----------------|
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk public key | [Clerk Dashboard](https://dashboard.clerk.com) |
+| `CLERK_SECRET_KEY` | Clerk secret key | [Clerk Dashboard](https://dashboard.clerk.com) |
+| `NEXT_PUBLIC_SUPABASE_URL` | Supabase project URL | [Supabase Dashboard](https://app.supabase.com) |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase anonymous key | [Supabase Dashboard](https://app.supabase.com) |
+| `NEXT_PUBLIC_VAPI_WEB_TOKEN` | Vapi web token | [Vapi Dashboard](https://vapi.ai) |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Optional Variables
 
-## Deploy on Vercel
+| Variable | Description | Where to Get It |
+|----------|-------------|-----------------|
+| `SENTRY_AUTH_TOKEN` | Sentry authentication token | [Sentry Dashboard](https://sentry.io) |
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📱 Screenshots
+
+### Homepage
+<img src="/public/images/homepage.png" alt="Homepage" width="800"/>
+
+### Advisor Session
+<img src="/public/images/session-active.png" alt="Active Session" width="800"/>
+
+### Mobile View
+<img src="/public/images/mobile-view.png" alt="Mobile View" width="400"/>
+
+---
+
+## 🎯 Subscription Tiers
+
+### Free Tier
+Perfect for trying out the platform
+- 5 custom advisors
+- 3 bookmarks
+- 5 sessions per month
+- 10-minute sessions
+- Access to all pre-built advisors
+
+### Pro Tier - $9.99/month
+For regular users
+- 20 custom advisors
+- Unlimited bookmarks
+- 50 sessions per month
+- 20-minute sessions
+- Conversation insights
+- Download transcripts
+- Unlimited conversation history
+
+### Premium Tier - $19.99/month
+For power users
+- Unlimited custom advisors
+- Unlimited bookmarks
+- Unlimited sessions
+- 30-minute sessions
+- Advanced analytics
+- AI-powered insights
+- Priority support
+- All Pro features
+
+---
+
+## 🛠️ Development
+
+### Available Scripts
+
+```bash
+# Development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Start production server
+npm start
+
+# Run linter
+npm run lint
+
+# Type checking
+npm run type-check
+```
+
+### Code Quality
+
+- **TypeScript** for type safety
+- **ESLint** for code linting
+- **Prettier** for code formatting
+- **Husky** for pre-commit hooks (optional)
+
+### Testing
+
+```bash
+# Run tests (if configured)
+npm test
+
+# Run tests in watch mode
+npm test:watch
+```
+
+---
+
+## 📦 Deployment
+
+### Deploy to Vercel (Recommended)
+
+1. **Push your code to GitHub**
+
+```bash
+git add .
+git commit -m "Initial commit"
+git push origin main
+```
+
+2. **Import to Vercel**
+
+- Go to [Vercel](https://vercel.com)
+- Click "New Project"
+- Import your GitHub repository
+- Add environment variables
+- Deploy!
+
+3. **Configure environment variables in Vercel**
+
+Add all variables from `.env.local` to your Vercel project settings.
+
+4. **Set up custom domain (optional)**
+
+- Add your custom domain in Vercel settings
+- Update DNS records as instructed
+
+### Deploy to Other Platforms
+
+The app can also be deployed to:
+- **Netlify**
+- **Railway**
+- **AWS Amplify**
+- **DigitalOcean App Platform**
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please follow these steps:
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+### Development Guidelines
+
+- Follow the existing code style
+- Write meaningful commit messages
+- Add tests for new features
+- Update documentation as needed
+
+---
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+---
+
+## 🙏 Acknowledgments
+
+- **Clerk** for authentication and subscription management
+- **Supabase** for the database infrastructure
+- **Vapi** for voice AI technology
+- **Vercel** for hosting and deployment
+- **shadcn/ui** for beautiful components
+
+---
+
+## 📞 Contact & Support
+
+- **Email**: support@articulate.app
+- **Twitter**: [@ArticulateApp](https://twitter.com/ArticulateApp)
+- **Discord**: [Join our community](https://discord.gg/articulate)
+
+---
+
+<div align="center">
+  <p>Built with ❤️ by the Articulate Team</p>
+  <p>
+    <a href="https://articulate.app">Website</a> •
+    <a href="https://docs.articulate.app">Documentation</a> •
+    <a href="https://blog.articulate.app">Blog</a>
+  </p>
+</div>
