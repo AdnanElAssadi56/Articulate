@@ -168,33 +168,25 @@ export const getUserCompanions = async (userId: string) => {
 }
 
 export const newCompanionPermissions = async () => {
-    const { userId, has } = await auth();
+    const { userId } = await auth();
+    if (!userId) return false;
+    
     const supabase = createSupabaseClient();
 
-    let limit = 0;
-
-    if(has({ plan: 'pro' })) {
-        return true;
-    } else if(has({ feature: "3_companion_limit" })) {
-        limit = 3;
-    } else if(has({ feature: "10_companion_limit" })) {
-        limit = 10;
-    }
-
+    // Get current companion count
     const { data, error } = await supabase
         .from('companions')
-        .select('id', { count: 'exact' })
-        .eq('author', userId)
+        .select('id')
+        .eq('author', userId);
 
     if(error) throw new Error(error.message);
 
-    const companionCount = data?.length;
+    const companionCount = data?.length || 0;
 
-    if(companionCount >= limit) {
-        return true;
-    } else {
-        return true;
-    }
+    // Import subscription utilities
+    const { canCreateCustomAdvisor } = await import('@/lib/subscription');
+    
+    return await canCreateCustomAdvisor(companionCount);
 }
 
 export const addBookmark = async (companionId: string, path: string) => {
@@ -214,6 +206,20 @@ export const addBookmark = async (companionId: string, path: string) => {
   // If already bookmarked, return the existing bookmark (no error)
   if (existing) {
     return existing;
+  }
+  
+  // Check bookmark limit
+  const { data: bookmarks } = await supabase
+    .from("bookmarks")
+    .select("id")
+    .eq("user_id", userId);
+  
+  const bookmarkCount = bookmarks?.length || 0;
+  const { canBookmarkAdvisor } = await import('@/lib/subscription');
+  const canBookmark = await canBookmarkAdvisor(bookmarkCount);
+  
+  if (!canBookmark) {
+    throw new Error('Bookmark limit reached. Upgrade to Pro for unlimited bookmarks!');
   }
   
   // Not bookmarked yet, create new bookmark

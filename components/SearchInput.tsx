@@ -32,25 +32,25 @@ const SearchInput = () => {
   }, [searchValue, searchParams, router, pathname]);
 
   return (
-    <div className="flex items-center gap-2 bg-white rounded-lg px-4 py-2 border border-gray-200">
+    <div className="flex items-center gap-3 bg-card rounded-lg px-4 py-2.5 border-2 border-border hover:border-accent transition-colors shadow-sm">
       <Image 
         src="/icons/search.svg" 
         alt="search" 
-        width={20} 
-        height={20}
-        className="opacity-50"
+        width={18} 
+        height={18}
+        className="opacity-60"
       />
       <input
         type="text"
-        placeholder="Search by topic or name..."
+        placeholder="Search advisors..."
         value={searchValue}
         onChange={(e) => setSearchValue(e.target.value)}
-        className="outline-none bg-transparent flex-1 min-w-[200px]"
+        className="outline-none bg-transparent flex-1 min-w-[200px] text-sm placeholder:text-muted-foreground"
       />
       {searchValue && (
         <button 
           onClick={() => setSearchValue('')}
-          className="text-gray-400 hover:text-gray-600"
+          className="text-muted-foreground hover:text-foreground transition-colors font-bold"
         >
           ✕
         </button>

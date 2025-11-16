@@ -202,8 +202,9 @@ body {
   }
   
   main {
-    @apply mx-auto px-14 flex flex-col gap-12 h-full max-w-[1400px] pt-10 pb-16 max-sm:px-4 max-sm:gap-8;
+    @apply mx-auto px-14 flex flex-col gap-12 max-w-[1400px] pt-10 pb-32 max-sm:px-4 max-sm:gap-8;
     margin-top: 80px; /* Account for fixed navbar */
+    min-height: calc(100vh - 80px); /* Full height minus navbar */
   }
   .btn-signin {
     @apply border-2 border-primary rounded-lg px-5 py-2.5 text-sm font-semibold flex items-center gap-2 cursor-pointer hover:bg-gradient-to-r hover:from-primary hover:to-accent hover:text-white transition-all duration-200 shadow-sm hover:shadow-md;
@@ -238,10 +239,16 @@ body {
   }
 
   .transcript {
-    @apply relative flex flex-col gap-4 w-full items-center pt-10 flex-grow overflow-hidden bg-card/50 backdrop-blur-sm rounded-2xl border-2 border-border p-6;
+    @apply relative flex flex-col gap-4 w-full items-center pt-10 overflow-hidden bg-card/50 backdrop-blur-sm rounded-2xl border-2 border-border p-6;
+    height: 450px;
   }
   .transcript-message {
     @apply overflow-y-auto w-full flex flex-col gap-4 max-sm:gap-2 pr-2 h-full text-xl;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .transcript-message::-webkit-scrollbar {
+    display: none;
   }
   .transcript-fade {
     @apply pointer-events-none absolute bottom-0 left-0 right-0 h-40 max-sm:h-20 bg-gradient-to-t from-card via-card/90 to-transparent z-10;
@@ -256,4 +263,193 @@ body {
     -ms-overflow-style: none;
     scrollbar-width: none;
   }
+}
+
+/* Subscription Page Animations */
+@keyframes pulse-slow {
+  0%, 100% { 
+    opacity: 0.3; 
+    transform: scale(1); 
+  }
+  50% { 
+    opacity: 0.5; 
+    transform: scale(1.05); 
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 4s ease-in-out infinite;
+}
+
+.delay-500 {
+  animation-delay: 0.5s;
+}
+
+.delay-1000 {
+  animation-delay: 1s;
+}
+
+.bg-size-200 {
+  background-size: 200% 100%;
+}
+
+.bg-pos-0 {
+  background-position: 0% 0%;
+}
+
+.bg-pos-100 {
+  background-position: 100% 0%;
+}
+
+/* Pricing Table Enhancements */
+.clerk-pricing-wrapper {
+  width: 100%;
+}
+
+/* Target the grid container that holds all cards */
+.clerk-pricing-wrapper [role="list"],
+.clerk-pricing-wrapper > div > div {
+  display: grid !important;
+  grid-template-columns: repeat(1, 1fr) !important;
+  gap: 1.5rem !important;
+  padding-top: 1rem !important;
+}
+
+@media (min-width: 768px) {
+  .clerk-pricing-wrapper [role="list"],
+  .clerk-pricing-wrapper > div > div {
+    grid-template-columns: repeat(3, 1fr) !important;
+  }
+}
+
+/* Tier-specific card styling - Target by position */
+.clerk-pricing-wrapper [role="list"] > div:nth-child(1),
+.clerk-pricing-wrapper > div > div > div:nth-child(1) {
+  border-color: #e0f2fe !important;
+  overflow: visible !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+  position: relative !important;
+}
+
+.clerk-pricing-wrapper [role="list"] > div:nth-child(2),
+.clerk-pricing-wrapper > div > div > div:nth-child(2) {
+  border-color: #0ea5e9 !important;
+  box-shadow: 0 20px 25px -5px rgba(14, 165, 233, 0.2), 0 10px 10px -5px rgba(14, 165, 233, 0.1), 0 10px 15px -3px rgba(0, 0, 0, 0.1) !important;
+  transform: scale(1.02);
+  overflow: visible !important;
+  border-radius: 1rem !important;
+}
+
+.clerk-pricing-wrapper [role="list"] > div:nth-child(3),
+.clerk-pricing-wrapper > div > div > div:nth-child(3) {
+  border-color: #f59e0b !important;
+  overflow: visible !important;
+  border-radius: 1rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
+}
+
+/* Force feature list to be vertical - More aggressive */
+.clerk-pricing-wrapper ul,
+.clerk-pricing-wrapper [role="list"] ul,
+.clerk-pricing-wrapper ul[role="list"] {
+  display: block !important;
+  list-style: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Feature list items - Force vertical stacking */
+.clerk-pricing-wrapper li,
+.clerk-pricing-wrapper ul li {
+  display: flex !important;
+  align-items: center !important;
+  gap: 0.5rem !important;
+  width: 100% !important;
+  margin-bottom: 0.25rem !important;
+}
+
+/* Let Clerk handle the active badge naturally - just style it */
+
+/* Disable button for free plan - Make it visible */
+.clerk-pricing-wrapper > div > div > div:first-child button,
+.clerk-pricing-wrapper [role="list"] > div:first-child button {
+  background: #e0f2fe !important;
+  color: #64748b !important;
+  cursor: not-allowed !important;
+  opacity: 1 !important;
+  border-radius: 0.75rem !important;
+}
+
+/* Ensure button text is visible */
+.clerk-pricing-wrapper button {
+  font-size: 0.875rem !important;
+  font-weight: 600 !important;
+}
+
+/* Ensure all buttons have rounded corners */
+.clerk-pricing-wrapper button {
+  border-radius: 0.75rem !important;
+}
+
+/* Fix Free card - ensure all elements have proper border radius */
+.clerk-pricing-wrapper [role="list"] > div:nth-child(1),
+.clerk-pricing-wrapper [role="list"] > div:nth-child(1) *,
+.clerk-pricing-wrapper > div > div > div:nth-child(1),
+.clerk-pricing-wrapper > div > div > div:nth-child(1) * {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+}
+
+/* Specifically target the button area at the bottom */
+.clerk-pricing-wrapper [role="list"] > div:nth-child(1) > div:last-child,
+.clerk-pricing-wrapper > div > div > div:nth-child(1) > div:last-child {
+  border-bottom-left-radius: 1rem !important;
+  border-bottom-right-radius: 1rem !important;
+  overflow: hidden !important;
+}
+
+/* Popular badge pulse effect */
+@keyframes badge-pulse {
+  0%, 100% {
+    transform: translateX(-50%) scale(1);
+  }
+  50% {
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+.clerk-pricing-wrapper [data-badge="popular"],
+.clerk-pricing-wrapper [role="list"] > div:nth-child(2) > div:first-child {
+  animation: badge-pulse 2s ease-in-out infinite;
+}
+
+/* Card sizing adjustments - Equal height for all cards */
+.clerk-pricing-wrapper [role="list"] > div,
+.clerk-pricing-wrapper > div > div > div {
+  min-height: 450px;
+  max-height: 600px;
+  align-items: stretch !important;
+  position: relative !important;
+}
+
+/* Add popular badge to middle card - More visible */
+.clerk-pricing-wrapper > div > div > div:nth-child(2)::before,
+.clerk-pricing-wrapper [role="list"] > div:nth-child(2)::before {
+  content: '⭐ POPULAR' !important;
+  display: block !important;
+  position: absolute !important;
+  top: -12px !important;
+  left: 50% !important;
+  transform: translateX(-50%) !important;
+  background: #f59e0b !important;
+  color: white !important;
+  padding: 0.5rem 1rem !important;
+  border-radius: 9999px !important;
+  font-size: 0.875rem !important;
+  font-weight: 700 !important;
+  z-index: 50 !important;
+  box-shadow: 0 4px 6px -1px rgba(245, 158, 11, 0.5) !important;
+  white-space: nowrap !important;
+  pointer-events: none !important;
 }
