@@ -4,6 +4,7 @@ import {redirect} from "next/navigation";
 import {getCategoryLightColor, getCategoryColor, getCategoryById} from "@/constants/categories";
 import Image from "next/image";
 import CompanionComponent from "@/components/CompanionComponent";
+import ShareAdvisor from "@/components/ShareAdvisor";
 
 interface CompanionSessionPageProps {
     params: Promise<{ id: string}>;
@@ -18,6 +19,10 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
 
     if(!user) redirect('/sign-in');
     if(!name) redirect('/companions')
+    
+    // Check if user has Pro/Premium access for insights
+    const { canViewInsights } = await import('@/lib/subscription');
+    const hasProAccess = await canViewInsights();
 
     const lightColor = getCategoryLightColor(category || 'academic');
     const categoryColor = getCategoryColor(category || 'academic');
@@ -61,9 +66,12 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
                         <div className="subject-badge w-fit">{subject}</div>
                     </div>
                 </div>
-                <div className="flex items-center gap-2 text-xl max-md:hidden text-muted-foreground">
-                    <Image src="/icons/clock.svg" alt="duration" width={20} height={20} />
-                    {duration} minutes
+                <div className="flex items-center gap-4 max-md:hidden">
+                    <div className="flex items-center gap-2 text-xl text-muted-foreground">
+                        <Image src="/icons/clock.svg" alt="duration" width={20} height={20} />
+                        {duration} minutes
+                    </div>
+                    <ShareAdvisor advisorId={id} advisorName={name} />
                 </div>
             </article>
 
@@ -72,6 +80,7 @@ const CompanionSession = async ({ params }: CompanionSessionPageProps) => {
                 companionId={id}
                 userName={user.firstName!}
                 userImage={user.imageUrl!}
+                hasProAccess={hasProAccess}
             />
         </main>
     )
