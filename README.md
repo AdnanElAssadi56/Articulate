@@ -402,7 +402,7 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 <img src="/public/images/homepage.png" alt="Homepage" width="800"/>
 
 ### Advisor Session
-<img src="/public/images/session-active.png" alt="Active Session" width="800"/>
+<img src="/public/images/voice-session.png" alt="Active Session" width="800"/>
 
 ### Mobile View
 <img src="/public/images/mobile-view.png" alt="Mobile View" width="400"/>
