@@ -34,7 +34,6 @@
 - [🛠️ Development](#️-development)
 - [📦 Deployment](#-deployment)
 - [🤝 Contributing](#-contributing)
-- [📄 License](#-license)
 
 ---
 
@@ -462,25 +461,6 @@ npm run lint
 # Type checking
 npm run type-check
 ```
-
-### Code Quality
-
-- **TypeScript** for type safety
-- **ESLint** for code linting
-- **Prettier** for code formatting
-- **Husky** for pre-commit hooks (optional)
-
-### Testing
-
-```bash
-# Run tests (if configured)
-npm test
-
-# Run tests in watch mode
-npm test:watch
-```
-
----
 
 ## 📦 Deployment
 
