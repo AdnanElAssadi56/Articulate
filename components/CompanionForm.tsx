@@ -58,10 +58,7 @@ const CompanionForm = () => {
     },
   });
 
-  // Form submission handler
-  const onSubmit = async (values: FormValues) => {
-    setIsSubmitting(true);
-    try {
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
       const companion = await createCompanion(values);
 
       if(companion) {
@@ -70,11 +67,7 @@ const CompanionForm = () => {
           console.log('Failed to create a companion');
           redirect('/');
       }
-    } catch (error) {
-      console.error('Error creating companion:', error);
-      setIsSubmitting(false);
-    }
-  };
+  }
 
   return (
     <Form {...form}>
