@@ -4,14 +4,15 @@
   <img src="/public/images/hero-banner.png" alt="Articulate Platform" width="800"/>
   
   <p align="center">
-    <strong>Your Personal AI Advisory Platform</strong>
+    <strong>Your Personal AI Advisory Council</strong>
   </p>
   
   <p align="center">
-    Connect with AI-powered advisors through natural voice conversations for career guidance, wellness coaching, spiritual growth, and academic support.
+    Connect with specialized AI advisors through natural voice conversations for career guidance, wellness coaching, spiritual growth, and academic support.
   </p>
 
   <p align="center">
+    <a href="https://articulate-phi.vercel.app/">Live Demo</a> •
     <a href="#features">Features</a> •
     <a href="#tech-stack">Tech Stack</a> •
     <a href="#getting-started">Getting Started</a> •
@@ -33,7 +34,7 @@
 - [🎯 Subscription Tiers](#-subscription-tiers)
 - [🛠️ Development](#️-development)
 - [📦 Deployment](#-deployment)
-- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
 
 ---
 
@@ -45,10 +46,10 @@ Built with modern web technologies and powered by advanced AI voice synthesis, A
 
 ### Why Articulate?
 
-- 🎯 **Specialized Advisors**: Choose from pre-built advisors or create your own custom AI advisor
+- 🎯 **Specialized Advisors**: Choose from 40+ pre-built advisors or create your own custom AI advisor
 - 🗣️ **Natural Voice Conversations**: Real-time voice interactions with low-latency responses
 - 📊 **Track Your Progress**: Monitor your journey with detailed analytics and insights
-- 💎 **Flexible Pricing**: Free tier to get started, premium plans for power users
+- � **Flexible Pricing**: Free tier to get started, premium plans for power users
 - 🔒 **Secure & Private**: Enterprise-grade security with Clerk authentication
 
 ---
@@ -75,7 +76,6 @@ Built with modern web technologies and powered by advanced AI voice synthesis, A
 - **Zod** - TypeScript-first schema validation
 - **React Hook Form** - Performant form handling
 - **Lucide Icons** - Modern icon library
-- **Lottie** - Smooth animations
 
 ---
 
@@ -108,7 +108,7 @@ Built with modern web technologies and powered by advanced AI voice synthesis, A
 - **Design your own AI advisor** with custom:
   - Name and personality
   - Subject expertise
-  - Conversation style
+  - Conversation style (casual, professional, formal, nurturing)
   - Voice type (male/female)
   - Session duration
 - **Tier-based limits**:
@@ -167,7 +167,6 @@ articulate/
 │   │   └── page.tsx              # Advisors list
 │   ├── journey/                  # User dashboard
 │   ├── subscription/             # Pricing & billing
-│   ├── api/                      # API routes
 │   ├── loading.tsx               # Global loading state
 │   ├── layout.tsx                # Root layout
 │   └── page.tsx                  # Homepage
@@ -225,24 +224,9 @@ session_history (
 )
 ```
 
-### Subscription Tiers (Clerk)
-
-The app uses Clerk's subscription management with three tiers:
-
-| Feature | Free | Pro ($9.99/mo) | Premium ($19.99/mo) |
-|---------|------|----------------|---------------------|
-| Custom Advisors | 5 | 20 | Unlimited |
-| Bookmarks | 3 | Unlimited | Unlimited |
-| Sessions/Month | 5 | 50 | Unlimited |
-| Session Duration | 10 min | 20 min | 30 min |
-| Conversation History | 3 | Unlimited | Unlimited |
-| Download Transcripts | ✅ | ✅ | ✅ |
-| Conversation Insights | ❌ | ✅ | ✅ |
-| Advanced Analytics | ❌ | ❌ | ✅ |
-
 ---
 
-## 🚀 Getting Started
+## �  Getting Started
 
 ### Prerequisites
 
@@ -257,16 +241,14 @@ Before you begin, ensure you have the following installed:
 1. **Clone the repository**
 
 ```bash
-git clone https://github.com/yourusername/articulate.git
-cd articulate
+git clone https://github.com/AdnanElAssadi56/Articulate.git
+cd Articulate
 ```
 
 2. **Install dependencies**
 
 ```bash
 npm install
-# or
-yarn install
 ```
 
 3. **Set up environment variables**
@@ -359,7 +341,6 @@ In your Clerk dashboard:
 - Create three subscription plans: Free, Pro, Premium
 - Set up pricing: Pro ($9.99/mo), Premium ($19.99/mo)
 - Configure features for each tier
-- Add webhook endpoints for subscription events
 
 6. **Run the development server**
 
@@ -400,9 +381,6 @@ Navigate to [http://localhost:3000](http://localhost:3000)
 ### Homepage
 <img src="/public/images/homepage.png" alt="Homepage" width="800"/>
 
-### Advisor Session
-<img src="/public/images/voice-session.png" alt="Active Session" width="800"/>
-
 ### Mobile View
 <img src="/public/images/mobile-view.png" alt="Mobile View" width="400"/>
 
@@ -436,7 +414,6 @@ For power users
 - 30-minute sessions
 - Advanced analytics
 - AI-powered insights
-- Priority support
 - All Pro features
 
 ---
@@ -457,10 +434,9 @@ npm start
 
 # Run linter
 npm run lint
-
-# Type checking
-npm run type-check
 ```
+
+---
 
 ## 📦 Deployment
 
@@ -486,44 +462,16 @@ git push origin main
 
 Add all variables from `.env.local` to your Vercel project settings.
 
-4. **Set up custom domain (optional)**
-
-- Add your custom domain in Vercel settings
-- Update DNS records as instructed
-
-### Deploy to Other Platforms
-
-The app can also be deployed to:
-- **Netlify**
-- **Railway**
-- **AWS Amplify**
-- **DigitalOcean App Platform**
+Your app will be live at `https://your-project.vercel.app`
 
 ---
 
-## 🤝 Contributing
+## 📄 License
 
-Contributions are welcome! Please follow these steps:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
-### Development Guidelines
-
-- Follow the existing code style
-- Write meaningful commit messages
-- Add tests for new features
-- Update documentation as needed
+This project is open source and available under the MIT License.
 
 ---
 
 ## 🙏 Acknowledgments
 
-- **Clerk** for authentication and subscription management
-- **Supabase** for the database infrastructure
-- **Vapi** for voice AI technology
-- **Vercel** for hosting and deployment
-- **shadcn/ui** for beautiful components
+Built with [Clerk](https://clerk.com), [Supabase](https://supabase.com), [Vapi](https://vapi.ai), and [Vercel](https://vercel.com).
